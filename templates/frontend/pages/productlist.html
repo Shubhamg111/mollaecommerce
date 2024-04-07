@@ -1,0 +1,75 @@
+{% extends "frontend/master/master.html" %}
+
+{% block content %}
+
+
+
+
+<main class="main">
+    
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        <div class="container d-flex align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Product List</a></li>
+               
+            </ol>
+
+            
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            
+            <h2 class="title text-center mb-4">All Products</h2><!-- End .title text-center -->
+            <div class="row">
+            {% for product in products %}
+            <div class="col-md-3">
+            <div class="product product-2">
+                <figure class="product-media">
+                    <span class="product-label label-circle label-new">New</span>
+                    <a href="{% url 'productview' product.slug %}">
+                        <img src="{{product.image.url}}" alt="{{product.name}}" class="product-image">
+                        <img src="{{product.image.url}}" alt="{{product.name}}" class="product-image-hover">
+                    </a>
+
+                    <div class="product-action-vertical">
+                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                    </div><!-- End .product-action -->
+
+                    <div class="product-action product-action-dark">
+                        <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                        <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
+                    </div><!-- End .product-action -->
+                </figure><!-- End .product-media -->
+
+                <div class="product-body">
+                    <div class="product-cat">
+                        <a href="#">{{product.category}}</a>
+                    </div><!-- End .product-cat -->
+                    <h3 class="product-title"><a href="product.html">{{product.name}}</a></h3><!-- End .product-title -->
+                    <div class="product-price">
+                        {{product.price}}
+                    </div><!-- End .product-price -->
+                    <div class="ratings-container">
+                        <div class="ratings">
+                            <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
+                        </div><!-- End .ratings -->
+                        <span class="ratings-text">( 2 Reviews )</span>
+                    </div><!-- End .rating-container -->
+                    <div class="product-nav product-nav-dots">
+                        <a href="#" class="active" style="background: #e2e2e2;"><span class="sr-only">Color name</span></a>
+                        <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
+                        <a href="#" style="background: #f2bc9e;"><span class="sr-only">Color name</span></a>
+                    </div><!-- End .product-nav -->
+                </div><!-- End .product-body -->
+            </div>
+        </div>
+            {% endfor %}
+        </div>
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+    
+</main>
+{% endblock  %}

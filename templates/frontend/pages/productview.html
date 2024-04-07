@@ -37,7 +37,7 @@
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="{{productdata.image.url}}" data-zoom-image="{{productdata.image.url}}" alt="{{productdata.name}}">
+                                    <img id="product-zoom" src="{{productData.image.url}}" data-zoom-image="{{productData.image.url}}" alt="{{productData.name}}">
 
                                     <a href="#" id="btn-product-gallery" class="btn-product-gallery">
                                         <i class="icon-arrows"></i>
@@ -45,11 +45,11 @@
                                 </figure><!-- End .product-main-image -->
 
                                 <div id="product-zoom-gallery" class="product-image-gallery">
-                                    <a class="product-gallery-item active" href="#" data-image="{{productdata.image.url}}" data-zoom-image="{{productdata.image.url}}">
-                                        <img src="{{productdata.image.url}}" alt="product side">
+                                    <a class="product-gallery-item active" href="#" data-image="{{productData.image.url}}" data-zoom-image="{{productData.image.url}}">
+                                        <img src="{{productData.image.url}}" alt="product side">
                                     </a>
 
-                                    {% for productimage in productdata.productimage_set.all %}
+                                    {% for productimage in productData.productimage_set.all %}
                                       
                                     
 
@@ -65,7 +65,7 @@
 
                     <div class="col-md-6">
                         <div class="product-details">
-                            <h1 class="product-title">{{productdata.name}}</h1><!-- End .product-title -->
+                            <h1 class="product-title">{{productData.name}}</h1><!-- End .product-title -->
 
                             <div class="ratings-container">
                                 <div class="ratings">
@@ -75,11 +75,11 @@
                             </div><!-- End .rating-container -->
 
                             <div class="product-price">
-                                ${{productdata.price}}
+                                ${{productData.price}}
                             </div><!-- End .product-price -->
 
                             <div class="product-content">
-                                <p>{{productdata.description | safe }} </p>
+                                <p>{{productData.description | safe }} </p>
                             </div><!-- End .product-content -->
 
                          
@@ -264,19 +264,19 @@
                     }
                 }'>
 
-                {% for relatedproduct in relatedproducts %}
+                {% for rproduct in relatedData %}
                   
                 
                 <div class="product product-7 text-center">
                     <figure class="product-media">
                         <span class="product-label label-new">New</span>
-                        <a href="{% url 'productview' relatedproduct.slug %}">
-                            <img src="{{relatedproduct.image.url}}" alt="{{relatedproduct.name}}" class="product-image">
+                        <a href="{% url 'productview' rproduct.slug %}">
+                            <img src="{{rproduct.image.url}}" alt="{{rproduct.name}}" class="product-image">
                         </a>
 
                         <div class="product-action-vertical">
                             <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                            <a href="{% url 'productview' relatedproduct.slug %}" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                            <a href="{% url 'productview' rproduct.slug %}" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
                             <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
                         </div><!-- End .product-action-vertical -->
 
@@ -289,9 +289,9 @@
                         <div class="product-cat">
                             <a href="#">Women</a>
                         </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="{% url 'productview' relatedproduct.slug %}">{{relatedproduct.name}}</a></h3><!-- End .product-title -->
+                        <h3 class="product-title"><a href="{% url 'productview' rproduct.slug %}">{{rproduct.name}}</a></h3><!-- End .product-title -->
                         <div class="product-price">
-                            ${{relatedproduct.price}}
+                            ${{rproduct.price}}
                         </div><!-- End .product-price -->
                         <div class="ratings-container">
                             <div class="ratings">
